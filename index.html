@@ -3,23 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
     <title>Random number</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <p id="display">hii</p>
-    <button id="btn">click</button>
+    <div class="container">
+      <p id="display">hii</p>
+
+      <button id="btn">click</button>
+    </div>
+
     <script>
       function setRand(num) {
-        document
-          .getElementById("display")
-          .innerText = `the generated number is : ${num}`;
+        document.getElementById(
+          "display"
+        ).innerText = `the generated number is : ${num}`;
       }
       document.getElementById("btn").addEventListener("click", () => {
         fetch("https://on-render.onrender.com/random-number")
           .then((Response) => Response.json())
           .then((data) => setRand(data.data))
-          .catch((error) => console.log("error",error));
+          .catch((error) => console.log("error", error));
       });
     </script>
   </body>
